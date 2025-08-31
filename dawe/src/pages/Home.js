@@ -74,11 +74,11 @@ export default function Home() {
   useEffect(() => {
     // Load actual data counts for dashboard
     summaryEndpoints.forEach(({ key }) => {
-      // Try to fetch /count endpoint first
+      
       fetch(`http://localhost:5000/api/${key}/count`)
         .then(res => res.json())
         .then(data => {
-          // If backend returns { count: N }
+         
           if (typeof data.count === 'number') {
             setCounts(c => ({ ...c, [key]: data.count }));
           } else {

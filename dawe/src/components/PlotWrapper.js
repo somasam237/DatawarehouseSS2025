@@ -1,7 +1,7 @@
-// src/components/PlotWrapper.js
+ 
 import React from 'react';
 
-// Lazy load Plot to avoid build issues
+
 let Plot = null;
 try {
   const PlotlyComponent = require('react-plotly.js');

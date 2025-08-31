@@ -1,11 +1,11 @@
-// backend/routes/versionHistoryRoutes.js
+
 const express = require('express');
 const VersionHistoryController = require('../controllers/VersionHistoryController');
 
 const router = express.Router();
 const versionHistoryController = new VersionHistoryController();
 
-// Basic CRUD operations
+
 router.get('/', versionHistoryController.getAllVersionHistory.bind(versionHistoryController));
 router.get('/count', versionHistoryController.getCount.bind(versionHistoryController));
 router.get('/statistics', versionHistoryController.getVersionStatistics.bind(versionHistoryController));

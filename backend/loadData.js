@@ -1,7 +1,3 @@
-// backend/loadData.js
-// This script loads data from CIF files into the PostgreSQL database.
-// WARNING: The CIF parsing logic here is simplistic and might not handle all complex CIF structures.
-// For production-grade parsing, consider a dedicated CIF parsing library.
 
 require('dotenv').config();
 const  pool = require('./db'); // Import the database pool
@@ -21,8 +17,7 @@ if (!fs.existsSync(imagesOutputDir)) {
 // --- Helper function for basic CIF parsing ---
 // This function attempts to extract a single value associated with a tag.
 function getCifValue(cifContent, tag) {
-    // Regex to find tag followed by space(s) and then the value.
-    // Handles single line values, potentially quoted.
+    
     const regex = new RegExp(`^${tag}\\s+(['"]?)([^'";\\n]+)\\1`, 'm');
     const match = cifContent.match(regex);
     if (match && match[2]) {
@@ -137,7 +132,7 @@ function generateImageWithPyMOL(cifPath, outPngPath) {
     });
 }
 
-// Build a reliable RCSB CDN image URL as fallback when CIF lacks one (kept as last resort)
+// Build a reliable RCSB CDN image URL as fallback when CIF lacks one 
 function getRcsbImageUrl(pdbId) {
     if (!pdbId) return null;
     const idLower = pdbId.toLowerCase();

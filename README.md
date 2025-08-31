@@ -1,12 +1,12 @@
 # Protein Data Warehouse 2025
 
-Ein modernes, interaktives Datenwarenhaus für Proteinstrukturdaten mit einer benutzerfreundlichen Web-Oberfläche.
+wir haben ein modernes, interaktives Datenwarenhaus für Proteinstrukturdaten mit einer benutzerfreundlichen Web-Oberfläche entwickelt.
 
-## 🌟 Übersicht
+##Die Übersicht
 
-Das Protein Data Warehouse 2025 ist eine vollständige Webanwendung zur Verwaltung und Analyse von Proteinstrukturdaten. Die Anwendung bietet eine intuitive Benutzeroberfläche mit Master-Detail-Ansichten, internationaler Unterstützung (Deutsch/Englisch), Authentifizierung und interaktiven Datenvisualisierungen.
+unsers Protein Data Warehouse ist eine vollständige Webanwendung zur Verwaltung und Analyse von Proteinstrukturdaten. Die Anwendung bietet eine intuitive Benutzeroberfläche mit Master-Detail-Ansichten, internationaler Unterstützung (Deutsch/Englisch), Authentifizierung und interaktiven Datenvisualisierungen.
 
-###Hauptfunktionen
+###Die Hauptfunktionen unseres Data Warehouse
 
 - **Master-Detail-Ansicht**: Vollständige CRUD-Operationen für alle Datenmodelle
 - **Internationalisierung**: Unterstützung für Deutsch und Englisch
@@ -14,8 +14,7 @@ Das Protein Data Warehouse 2025 ist eine vollständige Webanwendung zur Verwaltu
 - **Globale Suche**: Suche nach PDB-IDs in der gesamten Anwendung
 - **Responsive Design**: Optimiert für Desktop und m
 obile Geräte
-- **Dark/Light Mode**: Anpassbare Benutzeroberfläche
-- **Interaktive Visualisierungen**: Wissenschaftliche Plots und Diagramme
+- **Dark und Light Mode**: Anpassbare Benutzeroberfläche
 - **Beziehungsmanagement**: Verwaltung von Datenbeziehungen zwischen Modellen
 
 ##  Technologie-Stack
@@ -40,19 +39,14 @@ obile Geräte
 
 ### Mindestanforderungen
 - **Betriebssystem**: Ubuntu 20.04 LTS oder neuer
-- **RAM**: 4 GB (8 GB empfohlen)
-- **Speicherplatz**: 2 GB freier Speicher
 - **Node.js**: Version 18.0.0 oder neuer
 - **PostgreSQL**: Version 12 oder neuer
 
 ### Empfohlene Konfiguration
-- **Betriebssystem**: Ubuntu 22.04 LTS
-- **RAM**: 8 GB oder mehr
-- **Speicherplatz**: 5 GB freier Speicher
 - **Node.js**: Version 20.0.0 oder neuer
 - **PostgreSQL**: Version 15 oder neuer
 
-## 🚀 Installation und Setup
+## Installation und Setup
 
 ### 1. Systemvorbereitung
 

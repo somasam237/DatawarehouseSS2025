@@ -1,4 +1,4 @@
-// src/pages/ExperimentalDataPage.js
+ 
 import React from 'react';
 import DataTableView from '../components/DataTableView';
 import { experimentalDataAPI } from '../services/api';
