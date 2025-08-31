@@ -1,0 +1,214 @@
+/* --- Base Styles --- */
+
+.main-gradient {
+  min-height: calc(100vh - 120px);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  padding: 2vw 4vw 2vw 4vw;
+  gap: 2vw;
+  margin-top: 24px;
+}
+
+.main-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.main-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.main-actions button {
+  background: linear-gradient(90deg, #a21caf 0%, #6366f1 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.main-actions button:hover {
+  background: linear-gradient(90deg, #ec4899 0%, #a21caf 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.main-search {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.main-search input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1px solid #a21caf;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.main-search input:focus {
+  border: 2px solid #6366f1;
+}
+
+.main-search button {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.main-search button:hover {
+  background: #a21caf;
+}
+
+.main-table-container {
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(44,44,44,0.18);
+  padding: 1.5rem 1rem;
+  overflow-x: auto;
+}
+
+.main-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.main-table th, .main-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.main-table th {
+  background: #a21caf;
+  color: #fff;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.main-table tr.selected {
+  background: #ec4899;
+  color: #fff;
+}
+
+.main-table tr:hover {
+  background: #f3e8ff;
+}
+
+.main-right {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 220px;
+  max-width: 350px;
+}
+
+.main-image {
+  max-width: 100%;
+  max-height: 320px;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(44,44,44,0.18);
+  margin-top: 1rem;
+}
+
+.main-placeholder {
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.help-icon {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  border: none;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  box-shadow: 0 4px 16px rgba(44,44,44,0.18);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2000;
+  transition: background 0.2s, color 0.2s;
+}
+
+.help-icon:hover {
+  background: #a21caf;
+  color: #fff;
+}
+
+/* --- Enhanced Card Animations --- */
+
+.futuristic-card {
+  position: relative;
+  overflow: visible;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+  z-index: 1;
+}
+
+.futuristic-card:hover {
+  transform: scale(1.045) translateY(-6px) rotate(-1deg);
+}
+
+.futuristic-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.futuristic-btn .btn-shimmer {
+  position: relative;
+  z-index: 2;
+}
+
+.futuristic-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.3) 60%, transparent 100%);
+  opacity: 0.25;
+  transform: skewX(-20deg);
+  transition: left 0.5s;
+}
+
+.futuristic-btn:hover::before {
+  left: 120%;
+  transition: left 0.5s;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .dashboard-panel { max-width: 98vw; }
+}
+
+@media (max-width: 600px) {
+  .dashboard-panel { padding: 1.2rem 0.5rem; }
+  .futuristic-card { border-radius: 16px; }
+}

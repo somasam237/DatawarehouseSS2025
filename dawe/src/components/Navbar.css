@@ -1,0 +1,281 @@
+.navbar {
+  width: 100%;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #6366f1 0%, #a21caf 50%, #ec4899 100%);
+  box-shadow: 0 2px 8px rgba(44, 44, 44, 0.15);
+   position: sticky; /* Add this */
+  top: 0;           /* Add this */
+  z-index: 1000; 
+}
+
+.navbar-title span {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar-search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 20px;
+}
+
+.navbar-logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-logo img {
+  height: 30%;
+  width: 80px;
+  object-fit: contain;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-actions a {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: text-decoration 0.2s;
+}
+
+.navbar-actions a:hover {
+  text-decoration: underline;
+}
+
+.navbar-actions select {
+  margin-left: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+}
+
+/* Language selector specific styles */
+.language-selector {
+  background: linear-gradient(90deg, #6366f1 0%, #a21caf 50%, #ec4899 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+  min-width: 120px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px !important;
+}
+
+.language-selector:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.language-selector:hover {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.language-selector option {
+  background-color: #6366f1;
+  color: white;
+  padding: 8px;
+}
+
+.language-selector option:nth-child(2) {
+  background-color: #a21caf;
+}
+
+.language-selector option:nth-child(3) {
+  background-color: #ec4899;
+}
+
+/* Global Search Styles */
+.navbar-search .MuiAutocomplete-root {
+  width: 100%;
+}
+
+.navbar-search .MuiAutocomplete-root .MuiOutlinedInput-root {
+  background: linear-gradient(90deg, #6366f1 0%, #a21caf 50%, #ec4899 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-search .MuiAutocomplete-root .MuiOutlinedInput-root:hover {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-search .MuiAutocomplete-root .MuiOutlinedInput-root.Mui-focused {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.navbar-search .MuiAutocomplete-paper {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.95) 0%, rgba(162, 28, 175, 0.95) 50%, rgba(236, 72, 153, 0.95) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+.navbar-search .MuiAutocomplete-option {
+  color: white !important;
+}
+
+.navbar-search .MuiAutocomplete-option:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.navbar-search .MuiAutocomplete-option[aria-selected="true"] {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ...existing code... */
+
+@media (max-width: 900px) {
+  .navbar-title span {
+    font-size: 1.3rem;
+  }
+  .navbar-search {
+    max-width: 400px;
+    margin: 0 10px;
+  }
+  .navbar-logo img {
+    width: 36px;
+  }
+  .navbar-actions button,
+  .navbar-actions select {
+    font-size: 0.95rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 8px;
+    gap: 10px;
+  }
+  .navbar-title,
+  .navbar-search,
+  .navbar-logo,
+  .navbar-actions {
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar-search {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+  .navbar-title span {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  .navbar-logo img {
+    width: 32px;
+    margin: 0 auto;
+  }
+  .navbar-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .navbar-actions button,
+  .navbar-actions select {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+}
+
+/* Dropdown menu styles */
+.navbar-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-trigger {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: text-decoration 0.2s;
+  user-select: none;
+}
+
+.dropdown-trigger:hover {
+  text-decoration: underline;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.navbar-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(25, 118, 210, 0.1);
+  color: #1976d2;
+}
+
+.dropdown-menu a:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.dropdown-menu a:last-child {
+  border-radius: 0 0 8px 8px;
+}

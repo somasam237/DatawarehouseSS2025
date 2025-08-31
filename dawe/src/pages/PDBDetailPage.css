@@ -1,0 +1,247 @@
+/* PDB Detail Page Styles */
+.pdb-detail-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.header-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.floating-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(15deg); }
+  50% { transform: translateY(-20px) rotate(15deg); }
+}
+
+.protein-image {
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.protein-image:hover {
+  transform: scale(1.05);
+}
+
+.quality-chip {
+  transition: all 0.3s ease;
+}
+
+.quality-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tab-content {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.badge-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.favorite-button {
+  transition: all 0.3s ease;
+}
+
+.favorite-button:hover {
+  transform: scale(1.1);
+}
+
+.back-button {
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  transform: translateX(-4px);
+}
+
+.download-button {
+  background: linear-gradient(45deg, #2196F3 30%, #21CBF3 90%);
+  border: 0;
+  border-radius: 3;
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, .3);
+  color: white;
+  height: 48;
+  padding: 0 30px;
+  transition: all 0.3s ease;
+}
+
+.download-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px 2px rgba(33, 203, 243, .4);
+}
+
+.tab-indicator {
+  background: linear-gradient(45deg, #667eea 30%, #764ba2 90%);
+}
+
+.data-table {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.data-table th {
+  background: linear-gradient(45deg, #f8f9fa 30%, #e9ecef 90%);
+  font-weight: 600;
+  color: #495057;
+}
+
+.data-table tr:hover {
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+.alert-custom {
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.alert-custom.info {
+  border-left-color: #2196F3;
+  background: linear-gradient(45deg, #E3F2FD 30%, #BBDEFB 90%);
+}
+
+.alert-custom.warning {
+  border-left-color: #FF9800;
+  background: linear-gradient(45deg, #FFF3E0 30%, #FFE0B2 90%);
+}
+
+.alert-custom.error {
+  border-left-color: #F44336;
+  background: linear-gradient(45deg, #FFEBEE 30%, #FFCDD2 90%);
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.error-container {
+  text-align: center;
+  padding: 4rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 2rem 1rem;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .protein-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .header-content h2 {
+    font-size: 1rem;
+  }
+  
+  .tab-content {
+    padding: 1rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .pdb-detail-page {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  }
+  
+  .info-card {
+    background: #2c3e50;
+    color: #ecf0f1;
+    border-color: #34495e;
+  }
+  
+  .data-table {
+    background: #2c3e50;
+    color: #ecf0f1;
+  }
+  
+  .data-table th {
+    background: #34495e;
+    color: #ecf0f1;
+  }
+  
+  .data-table tr:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+  }
+} 
