@@ -6,18 +6,19 @@ Ein modernes, interaktives Datenwarenhaus für Proteinstrukturdaten mit einer be
 
 Das Protein Data Warehouse 2025 ist eine vollständige Webanwendung zur Verwaltung und Analyse von Proteinstrukturdaten. Die Anwendung bietet eine intuitive Benutzeroberfläche mit Master-Detail-Ansichten, internationaler Unterstützung (Deutsch/Englisch), Authentifizierung und interaktiven Datenvisualisierungen.
 
-### 🚀 Hauptfunktionen
+###Hauptfunktionen
 
-- **📊 Master-Detail-Ansicht**: Vollständige CRUD-Operationen für alle Datenmodelle
-- **🌍 Internationalisierung**: Unterstützung für Deutsch und Englisch
-- **🔐 Benutzerauthentifizierung**: Registrierung, Login, E-Mail-Bestätigung
-- **🔍 Globale Suche**: Schnelle Suche nach PDB-IDs in der gesamten Anwendung
-- **📱 Responsive Design**: Optimiert für Desktop und mobile Geräte
-- **🌙 Dark/Light Mode**: Anpassbare Benutzeroberfläche
-- **📈 Interaktive Visualisierungen**: Wissenschaftliche Plots und Diagramme
-- **🔗 Beziehungsmanagement**: Verwaltung von Datenbeziehungen zwischen Modellen
+- **Master-Detail-Ansicht**: Vollständige CRUD-Operationen für alle Datenmodelle
+- **Internationalisierung**: Unterstützung für Deutsch und Englisch
+- **Benutzerauthentifizierung**: Registrierung, Login, E-Mail-Bestätigung
+- **Globale Suche**: Suche nach PDB-IDs in der gesamten Anwendung
+- **Responsive Design**: Optimiert für Desktop und m
+obile Geräte
+- **Dark/Light Mode**: Anpassbare Benutzeroberfläche
+- **Interaktive Visualisierungen**: Wissenschaftliche Plots und Diagramme
+- **Beziehungsmanagement**: Verwaltung von Datenbeziehungen zwischen Modellen
 
-## 🛠️ Technologie-Stack
+##  Technologie-Stack
 
 ### Frontend
 - **React 19.1.0** - Moderne JavaScript-Bibliothek für Benutzeroberflächen
@@ -35,7 +36,7 @@ Das Protein Data Warehouse 2025 ist eine vollständige Webanwendung zur Verwaltu
 - **JSON Web Tokens** - Authentifizierung
 - **Nodemailer 7.0.3** - E-Mail-Versand
 
-## 📋 Systemanforderungen
+## Systemanforderungen
 
 ### Mindestanforderungen
 - **Betriebssystem**: Ubuntu 20.04 LTS oder neuer
@@ -125,10 +126,10 @@ NODE_ENV=development
 # Zurück zum Hauptverzeichnis
 cd ..
 
-# CIF-Dateien laden (falls vorhanden)
+# CIF-Dateien laden
 node backend/loadData.js
 
-# Oder Datenbank-Schema erstellen (falls loadData.js nicht verfügbar)
+# Oder Datenbank-Schema erstellen
 psql -U dawe_user -d Dawe2Test -f backend/database/schema.sql
 ```
 
@@ -146,12 +147,12 @@ cd dawe
 npm start
 ```
 
-Die Anwendung ist jetzt verfügbar unter:
+Die Anwendung ist local verfügbar unter:
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:5000
 - **API-Dokumentation**: http://localhost:5000/health
 
-## 📖 Verwendung
+## Verwendung unser dataWarehouse
 
 ### 1. Erste Schritte
 
@@ -313,6 +314,3 @@ git push origin feature/neue-funktion
 
 ---
 
-**Entwickelt mit ❤️ für die wissenschaftliche Community**
-
-*Letzte Aktualisierung: August 2025* 

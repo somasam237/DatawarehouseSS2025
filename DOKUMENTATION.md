@@ -134,6 +134,7 @@ CREATE TABLE software_used (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
 CREATE TABLE version_history (
     id SERIAL PRIMARY KEY,
     pdb_id VARCHAR(10) REFERENCES protein_info(pdb_id),
