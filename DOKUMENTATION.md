@@ -1,6 +1,6 @@
-# Protein Data Warehouse 2025 - Technische Dokumentation
+Technische Dokumentation
 
-## 📋 Inhaltsverzeichnis
+## Inhaltsverzeichnis
 
 1. [Architektur-Übersicht](#architektur-übersicht)
 2. [Datenbank-Schema](#datenbank-schema)
@@ -16,11 +16,11 @@
 ### Systemarchitektur
 
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Frontend      │    │    Backend      │    │   PostgreSQL    │
-│   (React)       │◄──►│   (Node.js)     │◄──►│   Database      │
-│   Port: 3000    │    │   Port: 5000    │    │   Port: 5432    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
+
+   Frontend          │    Backend      │    │   PostgreSQL    │
+   (React)       ◄──►│   (Node.js)     │◄──►│   Database      │
+   Port: 3000        │   Port: 5000    │    │   Port: 5432    │
+ 
 ```
 
 ### Technologie-Stack
@@ -82,7 +82,6 @@ CREATE TABLE protein_info (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Experimentelle Daten
 CREATE TABLE experimental_data (
     id SERIAL PRIMARY KEY,
     pdb_id VARCHAR(10) REFERENCES protein_info(pdb_id),
@@ -95,7 +94,6 @@ CREATE TABLE experimental_data (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Liganden
 CREATE TABLE ligands (
     id SERIAL PRIMARY KEY,
     pdb_id VARCHAR(10) REFERENCES protein_info(pdb_id),
@@ -106,7 +104,7 @@ CREATE TABLE ligands (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Makromoleküle
+
 CREATE TABLE macromolecules (
     id SERIAL PRIMARY KEY,
     pdb_id VARCHAR(10) REFERENCES protein_info(pdb_id),
@@ -117,7 +115,6 @@ CREATE TABLE macromolecules (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Autoren und Finanzierung
 CREATE TABLE authors_funding (
     id SERIAL PRIMARY KEY,
     pdb_id VARCHAR(10) REFERENCES protein_info(pdb_id),
@@ -128,7 +125,6 @@ CREATE TABLE authors_funding (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Verwendete Software
 CREATE TABLE software_used (
     id SERIAL PRIMARY KEY,
     pdb_id VARCHAR(10) REFERENCES protein_info(pdb_id),
@@ -138,7 +134,6 @@ CREATE TABLE software_used (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Versionsverlauf
 CREATE TABLE version_history (
     id SERIAL PRIMARY KEY,
     pdb_id VARCHAR(10) REFERENCES protein_info(pdb_id),
@@ -151,45 +146,36 @@ CREATE TABLE version_history (
 
 ### Beziehungen
 
-```mermaid
-erDiagram
-    protein_info ||--o{ experimental_data : "has"
-    protein_info ||--o{ ligands : "contains"
-    protein_info ||--o{ macromolecules : "contains"
-    protein_info ||--o{ authors_funding : "has"
-    protein_info ||--o{ software_used : "uses"
-    protein_info ||--o{ version_history : "has"
-```
 
 ## 🔌 API-Dokumentation
 
-### Basis-URL
+URL
 ```
 http://localhost:5000/api
 ```
 
-### Authentifizierung
+### The Authentifizierung
 
-#### Registrierung
+#### The Registrierung
 ```http
 POST /api/auth/register
 Content-Type: application/json
 
 {
-    "username": "benutzer",
-    "email": "benutzer@example.com",
-    "password": "sicheresPasswort123!"
+    "username": "user",
+    "email": "user@example.com",
+    "password": "Passwort123'!"
 }
 ```
 
-#### Anmeldung
+#### Die Anmeldung von user (log in)
 ```http
 POST /api/auth/login
 Content-Type: application/json
 
 {
-    "email": "benutzer@example.com",
-    "password": "sicheresPasswort123!"
+    "email": "user@example.com",
+    "password": "Passwort123!"
 }
 ```
 
@@ -362,7 +348,7 @@ src/
 │   ├── Register.js            # Registrierung
 │   ├── ProteinInfoPage.js     # Protein-Informationen
 │   ├── PDBDetailPage.js       # PDB-Detailseite
-│   └── [Model]Page.js         # Weitere Modell-Seiten
+│   └── dPage.js         # Weitere Modell-Seiten
 ├── services/
 │   └── api.js                 # API-Service-Funktionen
 ├── theme.js                   # Theme-Konfiguration
@@ -709,126 +695,4 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 }
-```
-
-### Docker-Deployment
-
-#### Dockerfile (Backend)
-```dockerfile
-FROM node:20-alpine
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm ci --only=production
-
-COPY . .
-
-EXPOSE 5000
-
-CMD ["node", "server.js"]
-```
-
-#### Dockerfile (Frontend)
-```dockerfile
-FROM node:20-alpine as build
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm ci
-
-COPY . .
-RUN npm run build
-
-FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
-```
-
-#### Docker Compose
-```yaml
-version: '3.8'
-
-services:
-  postgres:
-    image: postgres:15
-    environment:
-      POSTGRES_DB: Dawe2Test
-      POSTGRES_USER: dawe_user
-      POSTGRES_PASSWORD: password
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-
-  backend:
-    build: ./backend
-    environment:
-      DB_HOST: postgres
-      DB_PASSWORD: password
-    depends_on:
-      - postgres
-    ports:
-      - "5000:5000"
-
-  frontend:
-    build: ./dawe
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
-
-volumes:
-  postgres_data:
-```
-
-### Monitoring und Logging
-
-#### Logging-Konfiguration
-```javascript
-// logger.js
-const winston = require('winston');
-
-const logger = winston.createLogger({
-    level: 'info',
-    format: winston.format.combine(
-        winston.format.timestamp(),
-        winston.format.json()
-    ),
-    transports: [
-        new winston.transports.File({ filename: 'error.log', level: 'error' }),
-        new winston.transports.File({ filename: 'combined.log' })
-    ]
-});
-
-if (process.env.NODE_ENV !== 'production') {
-    logger.add(new winston.transports.Console({
-        format: winston.format.simple()
-    }));
-}
-```
-
-#### Health Checks
-```javascript
-// health.js
-app.get('/health', (req, res) => {
-    const health = {
-        status: 'OK',
-        timestamp: new Date().toISOString(),
-        uptime: process.uptime(),
-        memory: process.memoryUsage(),
-        database: 'connected'
-    };
-    
-    res.status(200).json(health);
-});
-```
-
----
-
-**Dokumentation erstellt von einem erfahrenen Full-Stack-Entwickler**
-
-*Letzte Aktualisierung: August 2025* 
+ 

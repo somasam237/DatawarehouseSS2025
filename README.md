@@ -58,7 +58,7 @@ Das Protein Data Warehouse 2025 ist eine vollständige Webanwendung zur Verwaltu
 Aktualisieren Sie Ihr System und installieren Sie die notwendigen Pakete:
 
 ```bash
-# System aktualisieren
+# zuerst das System aktualisieren
 sudo apt update && sudo apt upgrade -y
 
 # Node.js und npm installieren
@@ -67,9 +67,6 @@ sudo apt-get install -y nodejs
 
 # PostgreSQL installieren
 sudo apt install postgresql postgresql-contrib -y
-
-# Git installieren (falls noch nicht vorhanden)
-sudo apt install git -y
 
 # Build-Tools installieren
 sudo apt install build-essential -y
@@ -87,30 +84,10 @@ sudo -u postgres psql
 
 # Datenbank und Benutzer erstellen
 CREATE DATABASE Dawe2Test;
-CREATE USER dawe_user WITH PASSWORD 'IhrSicheresPasswort123!';
+CREATE USER dawe_user WITH PASSWORD 'Passwort1234';
 GRANT ALL PRIVILEGES ON DATABASE Dawe2Test TO dawe_user;
 \q
 ```
-
-### 3. Projekt klonen und einrichten
-
-```bash
-# Projekt klonen
-git clone https://github.com/IhrUsername/DataWarehouse2025.git
-cd DataWarehouse2025
-
-# Backend-Abhängigkeiten installieren
-cd backend
-npm install
-
-# Frontend-Abhängigkeiten installieren
-cd ../dawe
-npm install
-```
-
-### 4. Umgebungsvariablen konfigurieren
-
-Erstellen Sie eine `.env`-Datei im Backend-Verzeichnis:
 
 ```bash
 cd ../backend
@@ -128,14 +105,14 @@ DB_PORT=5432
 DB_NAME=Dawe2Test
 
 # JWT-Konfiguration
-JWT_SECRET=IhrSuperGeheimesJWTSecret123!
+JWT_SECRET=JWTSecret123!
 
 # E-Mail-Konfiguration (für Benutzerregistrierung)
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
-EMAIL_USER=IhreEmail@gmail.com
-EMAIL_PASS=IhrAppPasswort
-EMAIL_FROM=IhreEmail@gmail.com
+EMAIL_USER=eEmail@example.com
+EMAIL_PASS=AppPasswort
+EMAIL_FROM=Email@example.com
 
 # Server-Konfiguration
 PORT=5000
@@ -255,17 +232,6 @@ cd backend
 npm test
 ```
 
-## 🐛 Fehlerbehebung
-
-### Häufige Probleme
-
-#### 1. Port bereits in Verwendung
-```bash
-# Port 3000 freigeben
-sudo lsof -ti:3000 | xargs kill -9
-
-# Port 5000 freigeben
-sudo lsof -ti:5000 | xargs kill -9
 ```
 
 #### 2. PostgreSQL-Verbindungsfehler
@@ -277,16 +243,7 @@ sudo systemctl status postgresql
 sudo systemctl restart postgresql
 ```
 
-#### 3. Node.js-Versionsprobleme
-```bash
-# Node.js-Version prüfen
-node --version
 
-# NVM verwenden für Version-Management
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-nvm install 20
-nvm use 20
-```
 
 #### 4. Abhängigkeitsprobleme
 ```bash
@@ -298,46 +255,24 @@ npm install
 ### Logs überprüfen
 
 ```bash
-# Backend-Logs
-cd backend
-tail -f logs/app.log  # Falls verfügbar
+
 
 # Frontend-Logs (Browser-Entwicklertools)
 # Öffnen Sie F12 im Browser und prüfen Sie die Konsole
 ```
 
-## 🔒 Sicherheit
-
-### Empfohlene Sicherheitsmaßnahmen
-
-1. **Starke Passwörter**: Verwenden Sie komplexe Passwörter für alle Benutzerkonten
-2. **HTTPS**: Konfigurieren Sie SSL/TLS für Produktionsumgebungen
-3. **Firewall**: Beschränken Sie den Zugriff auf notwendige Ports
-4. **Regelmäßige Updates**: Halten Sie alle Abhängigkeiten aktuell
-5. **Backup-Strategie**: Implementieren Sie regelmäßige Datenbank-Backups
 
 ### Produktionsumgebung
 
 ```bash
-# PM2 für Prozess-Management installieren
-npm install -g pm2
 
 # Anwendung in Produktion starten
 pm2 start backend/server.js --name "dawe-backend"
 pm2 start "npm start" --name "dawe-frontend" --cwd ./dawe
 
-# PM2-Status überprüfen
-pm2 status
-pm2 logs
+
 ```
 
-## 📞 Support
-
-### Hilfe erhalten
-
-1. **Dokumentation**: Prüfen Sie diese README-Datei
-2. **Issues**: Erstellen Sie ein Issue im GitHub-Repository
-3. **Community**: Nutzen Sie die Community-Foren
 
 ### Nützliche Befehle
 
@@ -357,13 +292,6 @@ netstat -tulpn | grep :3000
 netstat -tulpn | grep :5000
 ```
 
-## 📄 Lizenz
-
-Dieses Projekt steht unter der MIT-Lizenz. Siehe LICENSE-Datei für Details.
-
-## 🤝 Beitragen
-
-Wir freuen uns über Beiträge! Bitte lesen Sie unsere Contributing-Richtlinien.
 
 ### Entwicklungsumgebung einrichten
 
